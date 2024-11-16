@@ -164,16 +164,25 @@ A long-term, trusted relationship with users where they feel confident that our 
 ## Technical Documentation
 
 ### API
+- Hosted on EC2
+- NodeJS 
+- MongoDB 
+- CRUD API
 
 ### Assistant
+- Get user by linkedIn id from API and craft message based on data
 
 ### Greasemonkey
 
 ### Roadmap
 
 #### Features Implemented
+- AI stores contacts with event where you met and notes about contacts from linkedIn
+- Show popup on LinkedIn with event where you met and notes
+- Agent has ability to get data craft a message based on that data
 
 #### Features Planned
+- Agent actually sends the message on linkedIn
 - Use LinkedIn API to trigger a notification after a new connection to add the context to the database (via voice or text) about the new connection
 
 - Before an event, let the AI know that all the contacts that were triggered during the event, belong to that event (all news contacts during that period of time are automatically associated with event)

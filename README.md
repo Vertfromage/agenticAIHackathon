@@ -141,3 +141,11 @@ A long-term, trusted relationship with users where they feel confident that our 
 * In-App Purchases: Purchases for additional features or data storage
 * Sponsored Content: Revenue from event organizers or sponsors for visibility
 * API Integrations: Charging for third-party integrations with other platforms (e.g., LinkedIn, CRM systems)
+
+## Technical Documentation
+
+### API
+
+### Assistant
+
+### Greasemonkey

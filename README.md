@@ -1,4 +1,6 @@
 # WhoRU?
+<img src="./img/logo.png" alt="WhoRU? Logo" width="300" />
+
 ## AI for Professional Networking
 
 ## Overview

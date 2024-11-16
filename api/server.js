@@ -1,6 +1,6 @@
-import express from 'express';
-import mongoose from 'mongoose';
-import dotenv from 'dotenv';
+import express from "express";
+import mongoose from "mongoose";
+import dotenv from "dotenv";
 
 dotenv.config();
 
@@ -10,21 +10,31 @@ const app = express();
 app.use(express.json());
 
 // Connect to MongoDB
-mongoose.connect(process.env.MONGO_URI)
-  .then(() => console.log('Connected to MongoDB'))
-  .catch(err => console.error('Could not connect to MongoDB:', err));
+mongoose
+  .connect(process.env.MONGO_URI)
+  .then(() => console.log("Connected to MongoDB"))
+  .catch((err) => console.error("Could not connect to MongoDB:", err));
 
 // Define a schema-less model
-const Connection = mongoose.model('Connection', new mongoose.Schema({}, { strict: false }));
+const Connection = mongoose.model(
+  "Connection",
+  new mongoose.Schema({}, { strict: false, timestamps: true })
+);
 
 // Routes
 
 // Create a connection
-app.post('/connections', async (req, res) => {
+app.post("/connections", async (req, res) => {
   try {
     // Check if `linkedin_id` is present in the request body
     if (!req.body.linkedin_id) {
-      return res.status(400).send({ error: '`linkedin_id` is required' });
+      return res.status(400).send({ error: "`linkedin_id` is required" });
+    }
+    if (!req.body.event) {
+      return res.status(400).send({ error: "`event` is required" });
+    }
+    if (!req.body.name) {
+      return res.status(400).send({ error: "`name` is required" });
     }
 
     // Create and save the connection
@@ -37,7 +47,7 @@ app.post('/connections', async (req, res) => {
 });
 
 // Get all connections
-app.get('/connections', async (req, res) => {
+app.get("/connections", async (req, res) => {
   try {
     const connections = await Connection.find();
     res.send(connections);
@@ -47,10 +57,11 @@ app.get('/connections', async (req, res) => {
 });
 
 // Get a single connection by ID
-app.get('/connections/:id', async (req, res) => {
+app.get("/connections/:id", async (req, res) => {
   try {
     const connection = await Connection.findById(req.params.id);
-    if (!connection) return res.status(404).send({ error: 'Connection not found' });
+    if (!connection)
+      return res.status(404).send({ error: "Connection not found" });
     res.send(connection);
   } catch (error) {
     res.status(500).send({ error: error.message });
@@ -58,10 +69,13 @@ app.get('/connections/:id', async (req, res) => {
 });
 
 // Get a single connection by LinkedIn ID
-app.get('/connections/linkedin/:linkedin_id', async (req, res) => {
+app.get("/connections/linkedin/:linkedin_id", async (req, res) => {
   try {
-    const connection = await Connection.findOne({ linkedin_id: req.params.linkedin_id });
-    if (!connection) return res.status(404).send({ error: 'Connection not found' });
+    const connection = await Connection.findOne({
+      linkedin_id: req.params.linkedin_id,
+    });
+    if (!connection)
+      return res.status(404).send({ error: "Connection not found" });
     res.send(connection);
   } catch (error) {
     res.status(500).send({ error: error.message });
@@ -69,10 +83,15 @@ app.get('/connections/linkedin/:linkedin_id', async (req, res) => {
 });
 
 // Update a connection by ID
-app.put('/connections/:id', async (req, res) => {
+app.put("/connections/:id", async (req, res) => {
   try {
-    const connection = await Connection.findByIdAndUpdate(req.params.id, req.body, { new: true, runValidators: true });
-    if (!connection) return res.status(404).send({ error: 'Connection not found' });
+    const connection = await Connection.findByIdAndUpdate(
+      req.params.id,
+      req.body,
+      { new: true, runValidators: true }
+    );
+    if (!connection)
+      return res.status(404).send({ error: "Connection not found" });
     res.send(connection);
   } catch (error) {
     res.status(400).send({ error: error.message });
@@ -80,11 +99,12 @@ app.put('/connections/:id', async (req, res) => {
 });
 
 // Delete a connection by ID
-app.delete('/connections/:id', async (req, res) => {
+app.delete("/connections/:id", async (req, res) => {
   try {
     const connection = await Connection.findByIdAndDelete(req.params.id);
-    if (!connection) return res.status(404).send({ error: 'Connection not found' });
-    res.send({ message: 'Connection deleted' });
+    if (!connection)
+      return res.status(404).send({ error: "Connection not found" });
+    res.send({ message: "Connection deleted" });
   } catch (error) {
     res.status(500).send({ error: error.message });
   }

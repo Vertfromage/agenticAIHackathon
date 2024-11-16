@@ -15,11 +15,31 @@ mongoose
   .then(() => console.log("Connected to MongoDB"))
   .catch((err) => console.error("Could not connect to MongoDB:", err));
 
-// Define a schema-less model
-const Connection = mongoose.model(
-  "Connection",
-  new mongoose.Schema({}, { strict: false, timestamps: true })
-);
+
+  const connectionSchema = new mongoose.Schema(
+    {
+      linkedin_id: {
+        type: String,
+        required: true,
+      },
+      name: {
+        type: String,
+        required: true, 
+      },
+      event: {
+        type: String,
+        required: true, 
+      },
+      notes: {
+        type: String, 
+      },
+    },
+    {
+      timestamps: true, // Automatically add `createdAt` and `updatedAt`
+    }
+  );
+  
+  const Connection = mongoose.model("Connection", connectionSchema);
 
 // Routes
 
@@ -81,6 +101,20 @@ app.get("/connections/linkedin/:linkedin_id", async (req, res) => {
     res.status(500).send({ error: error.message });
   }
 });
+
+// Get a single connection by LinkedIn ID
+app.get("/connections/name/:name", async (req, res) => {
+    try {
+      const connection = await Connection.findOne({
+        name: req.params.name,
+      });
+      if (!connection)
+        return res.status(404).send({ error: "Connection not found" });
+      res.send(connection);
+    } catch (error) {
+      res.status(500).send({ error: error.message });
+    }
+  });
 
 // Update a connection by ID
 app.put("/connections/:id", async (req, res) => {

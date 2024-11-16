@@ -21,10 +21,11 @@ const functionCalls = {
 const FunctionCalling = () => {
   const functionCallHandler = async (call: RequiredActionFunctionToolCall) => {
     if (!Object.keys(functionCalls).includes(call?.function?.name)) return;
+    console.log(call);
     const args = JSON.parse(call.function.arguments);
     const handler = functionCalls[call?.function?.name];
     if (!handler) return;
-    const data = handler(args.location);
+    const data = handler(args);
     return JSON.stringify(data);
   };
 

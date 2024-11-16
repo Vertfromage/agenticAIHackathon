@@ -1,10 +1,12 @@
 import axios from "axios";
 import OpenAI from "openai";
 
-export function sendMessage(linkedinId: string) {
+export async function sendMessage(args: any) {
+  const { linkedinId } = args;
   // const openai = new OpenAI();
-  const user = axios.get(
-    `http://localhost:3001/connection/linkedin/${linkedinId}`
+  const user = await axios.get(
+    `http://ec2-18-216-224-206.us-east-2.compute.amazonaws.com:3000/connections/linkedin/${linkedinId}`
   );
-  console.log(user);
+  console.log({ user });
+  return user;
 }

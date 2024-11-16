@@ -1,72 +1,73 @@
-# OpenAI Assistant Starter Kit
+# OpenAI Assistants API Quickstart
 
-Try the live version of this application by visiting:
+A quick-start template using the OpenAI [Assistants API](https://platform.openai.com/docs/assistants/overview) with [Next.js](https://nextjs.org/docs).
+<br/>
+<br/>
+![OpenAI Assistants API Quickstart](https://github.com/openai/openai-assistants-quickstart/assets/27232/755e85e9-3ea4-421f-b202-3b0c435ea270)
 
-[OpenAI Assistant Starter Kit](https://openai-assistant-starter-kit.vercel.app/)
+## Quickstart Setup
 
-![screen capture](screen-capture.png)
+### 1. Clone repo
 
-
-The **OpenAI Assistant Starter Kit** is a fully-functional OpenAI chat application that illustrates:
-
-* Streaming OpenAI Assistant responses from the server to deliver realtime responses.
-* Customizing the appearance and behavior of your OpenAI chat application.
-* Handling a long thread of messages without losing context.
-* Designing an OpenAI app to work on both mobile and desktop.
-
-This Starter Kit was built using NextJS + ReactJS + TypeScript + OpenAI. 
-
-## Configure Your Assistant
-
-Before you can use this Starter Kit, you must first configure an OpenAI Assistant by visiting the [OpenAI Playground](https://platform.openai.com/playground?mode=assistant). Create a new OpenAI Assistant by entering an Assistant name, instructions, and model.
-
-![screen capture](create-new-assistant.png)
-
-After you create your new Assistant, make note of the Assistant Id. You'll need this Id to build a UI for your Assistant using the Starter Kit. 
-
-## Downloading and Running the Code Locally
-
-Complete these three steps to download and run the **OpenAI Assistant Starter Kit** locally.
-
-First, create a new NextJS app that uses the **OpenAI Assistant Starter Kit** as a template:
-
-```bash
-npx create-next-app@latest openai-assistant-starter-kit --use-npm --example "https://github.com/Superexpert/openai-assistant-starter-kit"
+```shell
+git clone https://github.com/openai/openai-assistants-quickstart.git
+cd openai-assistants-quickstart
 ```
 
-In your new folder, run the following command to get all of your npm packages:
+### 2. Set your [OpenAI API key](https://platform.openai.com/api-keys)
 
+```shell
+export OPENAI_API_KEY="sk_..."
 ```
+
+(or in `.env.example` and rename it to `.env`).
+
+### 3. Install dependencies
+
+```shell
 npm install
 ```
 
-Second, ensure that you have configured an OpenAI API Key on your computer. You can run the following command from Terminal in MacOS:
+### 4. Run
 
-```bash
-nano ~/.zshrc
-```
-Add your OpenAI API Key:
-```
-export OPENAI_API_KEY='your-api-key-here'
-```
-And then hit Ctrl+O to write the changes, followed by Ctrl+X to close the editor. Restart Terminal so it can pick up on the new environment variable.
-
-Next, you need to add your Assistant Id to the Starter Kit. Open the app/page.tsx file and modify the assistantId prop associated with the OpenAIAssistant ReactJS component:
-
-```
-<OpenAIAssistant 
-    assistantId="asst_gx3Htc0gLVNlpBQKLoefkXZZ"
-    greeting="I am a helpful chat assistant. How can I help you?"
-/>
-```
-
-Finally, run the app by entering the following command in Terminal:
-
-```
+```shell
 npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 5. Navigate to [http://localhost:3000](http://localhost:3000).
 
-## Learn More
-To learn more about building OpenAI applications, consider hiring [Superexpert Training](https://superexpert.com) to provide an OpenAI workshop for your company.
+## Deployment
+
+You can deploy this project to Vercel or any other platform that supports Next.js.
+
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fopenai%2Fopenai-assistants-quickstart&env=OPENAI_API_KEY,OPENAI_ASSISTANT_ID&envDescription=API%20Keys%20and%20Instructions&envLink=https%3A%2F%2Fgithub.com%2Fopenai%2Fopenai-assistants-quickstart%2Fblob%2Fmain%2F.env.example)
+
+## Overview
+
+This project is intended to serve as a template for using the Assistants API in Next.js with [streaming](https://platform.openai.com/docs/assistants/overview/step-4-create-a-run), tool use ([code interpreter](https://platform.openai.com/docs/assistants/tools/code-interpreter) and [file search](https://platform.openai.com/docs/assistants/tools/file-search)), and [function calling](https://platform.openai.com/docs/assistants/tools/function-calling). While there are multiple pages to demonstrate each of these capabilities, they all use the same underlying assistant with all capabilities enabled.
+
+The main logic for chat will be found in the `Chat` component in `app/components/chat.tsx`, and the handlers starting with `api/assistants/threads` (found in `api/assistants/threads/...`). Feel free to start your own project and copy some of this logic in! The `Chat` component itself can be copied and used directly, provided you copy the styling from `app/components/chat.module.css` as well.
+
+### Pages
+
+- Basic Chat Example: [http://localhost:3000/examples/basic-chat](http://localhost:3000/examples/basic-chat)
+- Function Calling Example: [http://localhost:3000/examples/function-calling](http://localhost:3000/examples/function-calling)
+- File Search Example: [http://localhost:3000/examples/file-search](http://localhost:3000/examples/file-search)
+- Full-featured Example: [http://localhost:3000/examples/all](http://localhost:3000/examples/all)
+
+### Main Components
+
+- `app/components/chat.tsx` - handles chat rendering, [streaming](https://platform.openai.com/docs/assistants/overview?context=with-streaming), and [function call](https://platform.openai.com/docs/assistants/tools/function-calling/quickstart?context=streaming&lang=node.js) forwarding
+- `app/components/file-viewer.tsx` - handles uploading, fetching, and deleting files for [file search](https://platform.openai.com/docs/assistants/tools/file-search)
+
+### Endpoints
+
+- `api/assistants` - `POST`: create assistant (only used at startup)
+- `api/assistants/threads` - `POST`: create new thread
+- `api/assistants/threads/[threadId]/messages` - `POST`: send message to assistant
+- `api/assistants/threads/[threadId]/actions` - `POST`: inform assistant of the result of a function it decided to call
+- `api/assistants/files` - `GET`/`POST`/`DELETE`: fetch, upload, and delete assistant files for file search
+
+## Feedback
+
+Let us know if you have any thoughts, questions, or feedback in [this form](https://docs.google.com/forms/d/e/1FAIpQLScn_RSBryMXCZjCyWV4_ebctksVvQYWkrq90iN21l1HLv3kPg/viewform?usp=sf_link)!

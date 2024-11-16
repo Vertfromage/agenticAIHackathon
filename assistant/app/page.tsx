@@ -1,19 +1,30 @@
-import OpenAIAssistant from "@/app/ui/openai-assistant";
+"use client";
 
-export default function Home() {
+import React from "react";
+import styles from "./page.module.css";
+
+const Home = () => {
+  const categories = {
+    "Basic chat": "basic-chat",
+    "Function calling": "function-calling",
+    "File search": "file-search",
+    All: "all",
+  };
+
   return (
-    <main>
-      <div className="mx-auto mb-12 max-w-lg text-center">
-        <div className="m-4">
-          <h1 className="mb-4 text-5xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-5xl">
-            Networking Helper
-          </h1>
-        </div>
-        <OpenAIAssistant
-          assistantId="asst_0qGqpNFwnaI0vKFZav9fGtOA"
-          greeting="How can I help you with your networking?"
-        />
+    <main className={styles.main}>
+      <div className={styles.title}>
+        Explore sample apps built with Assistants API
+      </div>
+      <div className={styles.container}>
+        {Object.entries(categories).map(([name, url]) => (
+          <a key={name} className={styles.category} href={`/examples/${url}`}>
+            {name}
+          </a>
+        ))}
       </div>
     </main>
   );
-}
+};
+
+export default Home;

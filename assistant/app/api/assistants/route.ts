@@ -4,33 +4,13 @@ export const runtime = "nodejs";
 
 // Create a new assistant
 export async function POST() {
-  const assistant = await openai.beta.assistants.create({
-    instructions: "You are a helpful assistant.",
-    name: "Networking Assistant",
-    model: "gpt-4o",
-    tools: [
-      {
-        type: "function",
-        function: {
-          name: "get_weather",
-          description: "Determine weather in my location",
-          parameters: {
-            type: "object",
-            properties: {
-              location: {
-                type: "string",
-                description: "The city and state e.g. San Francisco, CA",
-              },
-              unit: {
-                type: "string",
-                enum: ["c", "f"],
-              },
-            },
-            required: ["location"],
-          },
-        },
-      },
-      {
+    const assistant = await openai.beta.assistants.create({
+      instructions:
+        "You are a helpful assistant for managing LinkedIn connections.",
+      name: "Networking Assistant",
+      model: "gpt-4o",
+      tools: [
+              {
         type: "function",
         function: {
           name: "getSingleConnection",
@@ -47,9 +27,63 @@ export async function POST() {
           },
         },
       },
+        {
+          type: "function",
+          function: {
+            name: "sendMessage",
+            description:
+              "Send a connection or followup message to a LinkedIn user",
+            parameters: {
+              type: "object",
+              properties: {
+                linkedinId: {
+                  type: "string",
+                  description: "The LinkedIn user's ID",
+                },
+              },
+              required: ["linkedinId"],
+            },
+          },
+        },
+        {
+          type: "function",
+          function: {
+            name: "recordConnection",
+            description:
+              "Record a new linkedIn connection event in the database.",
+            parameters: {
+              type: "object",
+              properties: {
+                linkedin_id: {
+                  type: "string",
+                  description:
+                    "The linkedin id of the person you connected with.",
+                },
+                name: {
+                  type: "string",
+                  description: "The name of the person you connected with.",
+                },
+                event: {
+                  type: "string",
+                  description: "The event that you connected with the person.",
+                },
+                date: {
+                  type: "string",
+                  description:
+                    "The date of the connection, converted to ISO format.",
+                },
+                notes: {
+                  type: "string",
+                  description:
+                    "Any additional notes you would like to add about the connection.",
+                },
+              },
+            },
+            required: ["location"],
+          },
+        },
+      },
     ],
   });
-  return new Response(JSON.stringify({ assistantId: assistant.id }), {
-    headers: { 'Content-Type': 'application/json' },
-    status: 200,
-});}
+  return Response.json({ assistantId: assistant.id });
+}

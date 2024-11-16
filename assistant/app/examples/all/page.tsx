@@ -4,12 +4,19 @@ import React, { useState } from "react";
 import styles from "./page.module.css";
 import Chat from "../../components/chat";
 import WeatherWidget from "../../components/weather-widget";
-import { recordConnection, getSingleUser } from "../../utils";
+import {
+  recordConnection,
+  getSingleConnection,
+  searchConnections,
+  sendMessage,
+} from "../../utils";
 import FileViewer from "../../components/file-viewer";
 
 const functionCalls = {
   recordConnection: recordConnection,
-  getSingleUser: getSingleUser,
+  getSingleConnection: getSingleConnection,
+  searchConnections: searchConnections,
+  sendMessage: sendMessage,
 };
 
 const FunctionCalling = () => {

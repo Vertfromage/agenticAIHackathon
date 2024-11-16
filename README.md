@@ -174,3 +174,6 @@ A long-term, trusted relationship with users where they feel confident that our 
 #### Features Implemented
 
 #### Features Planned
+- Use LinkedIn API to trigger a notification after a new connection to add the context to the database (via voice or text) about the new connection
+
+- Before an event, let the AI know that all the contacts that were triggered during the event, belong to that event (all news contacts during that period of time are automatically associated with event)

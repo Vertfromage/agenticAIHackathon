@@ -173,6 +173,8 @@ A long-term, trusted relationship with users where they feel confident that our 
 - Get user by linkedIn id from API and craft message based on data
 
 ### Greasemonkey
+- Handles the API call to the database to retrieve connected contact details
+- Displays in-browser popup to show contact details
 
 ### Roadmap
 

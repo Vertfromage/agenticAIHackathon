@@ -13,13 +13,15 @@ export async function POST() {
         type: "function",
         function: {
           name: "recordConnection",
-          description: "Record a new linkedIn connection event in the database.",
+          description:
+            "Record a new linkedIn connection event in the database.",
           parameters: {
             type: "object",
             properties: {
               linkedin_id: {
                 type: "string",
-                description: "The city and state e.g. San Francisco, CA",
+                description:
+                  "The linkedin id of the person you connected with.",
               },
               name: {
                 type: "string",
@@ -30,8 +32,14 @@ export async function POST() {
                 description: "The event that you connected with the person.",
               },
               date: {
+                type: "date",
+                description:
+                  "The date of the connection, converted to ISO format.",
+              },
+              notes: {
                 type: "string",
-                description: "The date of the connection in ISO format.",
+                description:
+                  "Any additional notes you would like to add about the connection.",
               },
             },
             required: ["linkedinId", "name", "event", "date"],

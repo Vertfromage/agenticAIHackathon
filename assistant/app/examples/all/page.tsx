@@ -4,17 +4,21 @@ import React, { useState } from "react";
 import styles from "./page.module.css";
 import Chat from "../../components/chat";
 import WeatherWidget from "../../components/weather-widget";
-import { getWeather } from "../../utils/weather";
+import { recordConnection, getSingleUser } from "../../utils";
 import FileViewer from "../../components/file-viewer";
 
-const FunctionCalling = () => {
-  const [weatherData, setWeatherData] = useState({});
+const functionCalls = {
+  recordConnection: recordConnection,
+  getSingleUser: getSingleUser,
+};
 
+const FunctionCalling = () => {
   const functionCallHandler = async (call) => {
-    if (call?.function?.name !== "get_weather") return;
+    if (!Object.keys(functionCalls).includes(call?.function?.name)) return;
     const args = JSON.parse(call.function.arguments);
-    const data = getWeather(args.location);
-    setWeatherData(data);
+    const handler = functionCalls[call?.function?.name];
+    if (!handler) return;
+    const data = handler(args.location);
     return JSON.stringify(data);
   };
 

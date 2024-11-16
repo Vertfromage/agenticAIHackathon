@@ -28,6 +28,43 @@ export async function POST() {
           },
         },
       },
+      {
+        type: "function",
+        function: {
+          name: "recordConnection",
+          description:
+            "Record a new linkedIn connection event in the database.",
+          parameters: {
+            type: "object",
+            properties: {
+              linkedin_id: {
+                type: "string",
+                description:
+                  "The linkedin id of the person you connected with.",
+              },
+              name: {
+                type: "string",
+                description: "The name of the person you connected with.",
+              },
+              event: {
+                type: "string",
+                description: "The event that you connected with the person.",
+              },
+              date: {
+                type: "date",
+                description:
+                  "The date of the connection, converted to ISO format.",
+              },
+              notes: {
+                type: "string",
+                description:
+                  "Any additional notes you would like to add about the connection.",
+              },
+            },
+            required: ["linkedinId", "name", "event", "date"],
+          },
+        },
+      },
     ],
   });
   return Response.json({ assistantId: assistant.id });

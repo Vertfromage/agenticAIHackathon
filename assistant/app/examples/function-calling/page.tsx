@@ -20,6 +20,7 @@ const functionCalls = {
 
 const FunctionCalling = () => {
   const functionCallHandler = async (call: RequiredActionFunctionToolCall) => {
+    console.log(call);
     if (!Object.keys(functionCalls).includes(call?.function?.name)) return;
     console.log(call);
     const args = JSON.parse(call.function.arguments);

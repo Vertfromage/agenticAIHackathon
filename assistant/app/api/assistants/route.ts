@@ -12,21 +12,29 @@ export async function POST() {
       {
         type: "function",
         function: {
-          name: "get_weather",
-          description: "Determine weather in my location",
+          name: "recordConnection",
+          description: "Record a new linkedIn connection event in the database.",
           parameters: {
             type: "object",
             properties: {
-              location: {
+              linkedin_id: {
                 type: "string",
                 description: "The city and state e.g. San Francisco, CA",
               },
-              unit: {
+              name: {
                 type: "string",
-                enum: ["c", "f"],
+                description: "The name of the person you connected with.",
+              },
+              event: {
+                type: "string",
+                description: "The event that you connected with the person.",
+              },
+              date: {
+                type: "string",
+                description: "The date of the connection in ISO format.",
               },
             },
-            required: ["location"],
+            required: ["linkedinId", "name", "event", "date"],
           },
         },
       },

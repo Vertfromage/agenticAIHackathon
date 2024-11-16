@@ -1,6 +1,23 @@
 # WhoRU?
 ## AI for Professional Networking
 
+## Overview
+- [Problem](#problem)
+- [Solution](#solution)
+- [Unique Value Proposition](#unique-value-proposition)
+- [Existing Alternatives](#existing-alternatives)
+- [Unfair Advantage](#unfair-advantage)
+- [Customer Segments](#customer-segments)
+- [Early Adopters](#early-adopters)
+- [Key Metrics](#key-metrics)
+- [Channels](#channels)
+- [Cost Structure](#cost-structure)
+
+## Technical Documentation
+- [API](#api)
+- [Assistant](#assistant)
+- [Greasemonkey](#greasemonkey)
+
 ### Problem
 
 When attending networking events, entrepreneurs and salespeople often meet numerous potential clients, partners, or leads. However, remembering key details about each person—such as their needs, pain points, and the context of your conversation—can be overwhelming. Without this context, it’s difficult to follow up effectively or nurture those relationships. As a result, valuable business opportunities and client connections are often lost, and maintaining a growing network of prospects becomes a time-consuming challenge.
@@ -116,7 +133,7 @@ A long-term, trusted relationship with users where they feel confident that our 
 
 * Slack or Discord Communities: Create or partner with professional communities on Slack or Discord where you can promote the app and allow users to directly ask questions or give feedback.
 
-### Cost Structure:
+### Cost Structure
 
 #### Fixed Costs:
 
@@ -125,7 +142,8 @@ A long-term, trusted relationship with users where they feel confident that our 
 * Salaries for core team
 * Marketing & advertising
 * Licensing/partnership fees
-* Variable Costs:
+
+#### Variable Costs:
 
 * Customer support & success
 * Transaction-based platform fees
@@ -133,7 +151,7 @@ A long-term, trusted relationship with users where they feel confident that our 
 * Event sponsorships/partnerships
 * Influencer and content creator payments
 
-#### Revenue Streams:
+### Revenue Streams:
 
 * Subscription Fees: Monthly or annual plans for users (entrepreneurs, sales professionals, etc.)
 * Freemium Model: Free basic version with premium features for paid users

@@ -3,7 +3,7 @@
 
 ## AI for Professional Networking
 
-WhoRU? Entrepreneurs and sales professionals constantly manage and leverage the connections they make at networking events, but this builds up quickly and is difficult to keep track of everyone.  Our solution captures critical details about each person—such as their needs, interests, and key details from interactions. With this information stored in one place, WhoRU? makes it easy to follow up effectively, nurture relationships, and turn leads into business opportunities; ensuring no valuable connection slips through the cracks.
+<b>WhoRU?</b> Entrepreneurs and sales professionals constantly manage and leverage the connections they make at networking events, but this builds up quickly and is difficult to keep track of everyone.  Our solution captures critical details about each person—such as their needs, interests, and key details from interactions. With this information stored in one place, <b>WhoRU?</b> makes it easy to follow up effectively, nurture relationships, and turn leads into business opportunities; ensuring no valuable connection slips through the cracks.
 
 ## Overview
 - [Problem](#problem)
@@ -38,11 +38,7 @@ An application that will accept text and transcribe voice input, input details i
 
 ### Unique Value Proposition
 
-Do you attend networking events, connect with dozens of people on LinkedIn, only to forget key details about them?
-
-* Where did you meet them? What value can they bring to your business or sales pipeline? How might they help you close deals or expand your network?"
-
-* <b>WhoRU?</b> helps entrepreneurs and sales professionals manage and leverage the connections they make at networking events by capturing critical details about each person—like their needs, interests, and context of the conversation. With this information stored in one place, <b>WhoRU?</b> makes it easy to follow up effectively, nurture relationships, and turn leads into business opportunities, ensuring no valuable connection slips through the cracks.
+WhoRU? stands out by going beyond basic contact management. While other tools simply store names and emails, WhoRU? is assisted by AI to capture the context—like interests, needs, and the specific value a person brings to your business. This makes follow-up more personalized and actionable, ensuring you never lose track of important details. Unlike traditional CRMs, WhoRU? is designed for simplicity, helping entrepreneurs and sales professionals build and nurture meaningful connections without the complexity of bulky systems.
 
 ### Existing Alternatives
 

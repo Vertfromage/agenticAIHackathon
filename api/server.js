@@ -1,6 +1,7 @@
 import express from "express";
 import mongoose from "mongoose";
 import dotenv from "dotenv";
+import cors from "cors";
 
 dotenv.config();
 
@@ -8,6 +9,7 @@ const app = express();
 
 // Middleware
 app.use(express.json());
+app.use(cors());
 
 // Connect to MongoDB
 mongoose
@@ -15,31 +17,30 @@ mongoose
   .then(() => console.log("Connected to MongoDB"))
   .catch((err) => console.error("Could not connect to MongoDB:", err));
 
-
-  const connectionSchema = new mongoose.Schema(
-    {
-      linkedin_id: {
-        type: String,
-        required: true,
-      },
-      name: {
-        type: String,
-        required: true, 
-      },
-      event: {
-        type: String,
-        required: true, 
-      },
-      notes: {
-        type: String, 
-      },
+const connectionSchema = new mongoose.Schema(
+  {
+    linkedin_id: {
+      type: String,
+      required: true,
     },
-    {
-      timestamps: true, // Automatically add `createdAt` and `updatedAt`
-    }
-  );
-  
-  const Connection = mongoose.model("Connection", connectionSchema);
+    name: {
+      type: String,
+      required: true,
+    },
+    event: {
+      type: String,
+      required: true,
+    },
+    notes: {
+      type: String,
+    },
+  },
+  {
+    timestamps: true, // Automatically add `createdAt` and `updatedAt`
+  }
+);
+
+const Connection = mongoose.model("Connection", connectionSchema);
 
 // Routes
 
@@ -104,17 +105,17 @@ app.get("/connections/linkedin/:linkedin_id", async (req, res) => {
 
 // Get a single connection by LinkedIn ID
 app.get("/connections/name/:name", async (req, res) => {
-    try {
-      const connection = await Connection.findOne({
-        name: req.params.name,
-      });
-      if (!connection)
-        return res.status(404).send({ error: "Connection not found" });
-      res.send(connection);
-    } catch (error) {
-      res.status(500).send({ error: error.message });
-    }
-  });
+  try {
+    const connection = await Connection.findOne({
+      name: req.params.name,
+    });
+    if (!connection)
+      return res.status(404).send({ error: "Connection not found" });
+    res.send(connection);
+  } catch (error) {
+    res.status(500).send({ error: error.message });
+  }
+});
 
 // Update a connection by ID
 app.put("/connections/:id", async (req, res) => {

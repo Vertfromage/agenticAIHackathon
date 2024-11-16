@@ -5,28 +5,26 @@ export const runtime = "nodejs";
 // Create a new assistant
 export async function POST() {
   const assistant = await openai.beta.assistants.create({
-    instructions: "You are a helpful assistant.",
+    instructions:
+      "You are a helpful assistant for managing LinkedIn connections.",
     name: "Networking Assistant",
     model: "gpt-4o",
     tools: [
       {
         type: "function",
         function: {
-          name: "get_weather",
-          description: "Determine weather in my location",
+          name: "sendMessage",
+          description:
+            "Send a connection or followup message to a LinkedIn user",
           parameters: {
             type: "object",
             properties: {
-              location: {
+              linkedinId: {
                 type: "string",
-                description: "The city and state e.g. San Francisco, CA",
-              },
-              unit: {
-                type: "string",
-                enum: ["c", "f"],
+                description: "The LinkedIn user's ID",
               },
             },
-            required: ["location"],
+            required: ["linkedinId"],
           },
         },
       },

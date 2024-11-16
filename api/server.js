@@ -102,6 +102,20 @@ app.get("/connections/linkedin/:linkedin_id", async (req, res) => {
   }
 });
 
+// Get a single connection by LinkedIn ID
+app.get("/connections/name/:name", async (req, res) => {
+    try {
+      const connection = await Connection.findOne({
+        name: req.params.name,
+      });
+      if (!connection)
+        return res.status(404).send({ error: "Connection not found" });
+      res.send(connection);
+    } catch (error) {
+      res.status(500).send({ error: error.message });
+    }
+  });
+
 // Update a connection by ID
 app.put("/connections/:id", async (req, res) => {
   try {

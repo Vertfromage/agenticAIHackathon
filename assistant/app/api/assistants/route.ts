@@ -30,7 +30,26 @@ export async function POST() {
           },
         },
       },
+      {
+        type: "function",
+        function: {
+          name: "getSingleConnection",
+          description: "getting the data from database using the LinkedIn ID",
+          parameters: {
+            type: "object",
+            properties: {
+              linkedInId: {
+                type: "string",
+                description: "ID",
+              },
+            },
+            required: ["location"],
+          },
+        },
+      },
     ],
   });
-  return Response.json({ assistantId: assistant.id });
-}
+  return new Response(JSON.stringify({ assistantId: assistant.id }), {
+    headers: { 'Content-Type': 'application/json' },
+    status: 200,
+});}

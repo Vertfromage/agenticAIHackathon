@@ -15,11 +15,31 @@ mongoose
   .then(() => console.log("Connected to MongoDB"))
   .catch((err) => console.error("Could not connect to MongoDB:", err));
 
-// Define a schema-less model
-const Connection = mongoose.model(
-  "Connection",
-  new mongoose.Schema({}, { strict: false, timestamps: true })
-);
+
+  const connectionSchema = new mongoose.Schema(
+    {
+      linkedin_id: {
+        type: String,
+        required: true,
+      },
+      name: {
+        type: String,
+        required: true, 
+      },
+      event: {
+        type: String,
+        required: true, 
+      },
+      notes: {
+        type: String, 
+      },
+    },
+    {
+      timestamps: true, // Automatically add `createdAt` and `updatedAt`
+    }
+  );
+  
+  const Connection = mongoose.model("Connection", connectionSchema);
 
 // Routes
 

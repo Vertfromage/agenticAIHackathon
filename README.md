@@ -3,6 +3,8 @@
 
 ## AI for Professional Networking
 
+WhoRU? Entrepreneurs and sales professionals constantly manage and leverage the connections they make at networking events, but this builds up quickly and is difficult to keep track of everyone.  Our solution captures critical details about each person—such as their needs, interests, and key details from interactions. With this information stored in one place, WhoRU? makes it easy to follow up effectively, nurture relationships, and turn leads into business opportunities; ensuring no valuable connection slips through the cracks.
+
 ## Overview
 - [Problem](#problem)
 - [Solution](#solution)
@@ -19,6 +21,7 @@
 - [API](#api)
 - [Assistant](#assistant)
 - [Greasemonkey](#greasemonkey)
+- [Roadmap](#roadmap)
 
 ### Problem
 
@@ -39,21 +42,21 @@ Do you attend networking events, connect with dozens of people on LinkedIn, only
 
 * Where did you meet them? What value can they bring to your business or sales pipeline? How might they help you close deals or expand your network?"
 
-* WhoRU? helps entrepreneurs and sales professionals manage and leverage the connections they make at networking events by capturing critical details about each person—like their needs, interests, and context of the conversation. With this information stored in one place, WhoRU? makes it easy to follow up effectively, nurture relationships, and turn leads into business opportunities, ensuring no valuable connection slips through the cracks.
+* <b>WhoRU?</b> helps entrepreneurs and sales professionals manage and leverage the connections they make at networking events by capturing critical details about each person—like their needs, interests, and context of the conversation. With this information stored in one place, <b>WhoRU?</b> makes it easy to follow up effectively, nurture relationships, and turn leads into business opportunities, ensuring no valuable connection slips through the cracks.
 
 ### Existing Alternatives
 
-* LinkedIn (and other Professional Networking Platforms): LinkedIn allows users to connect with professionals and keep track of their network in one place. It provides basic information on contacts, such as job titles, company names, and recent activity. However, LinkedIn is limited to only basic information—users often forget where they met someone, what they talked about, or the context of the interaction.
+* <b>LinkedIn</b> (and other Professional Networking Platforms)</b>: LinkedIn allows users to connect with professionals and keep track of their network in one place. It provides basic information on contacts, such as job titles, company names, and recent activity. However, LinkedIn is limited to only basic information—users often forget where they met someone, what they talked about, or the context of the interaction.
 
-* CRM (Customer Relationship Management) Systems: CRMs like Salesforce, HubSpot, and Zoho allow users (especially salespeople or business development professionals) to track interactions with leads, clients, and prospects. However, CRMs are typically designed for business or sales use, not for personal networking. They tend to be overly focused on sales pipelines, rather than on casual networking or event-based connections.
+* <b>CRM (Customer Relationship Management) Systems</b>: CRMs like Salesforce, HubSpot, and Zoho allow users (especially salespeople or business development professionals) to track interactions with leads, clients, and prospects. However, CRMs are typically designed for business or sales use, not for personal networking. They tend to be overly focused on sales pipelines, rather than on casual networking or event-based connections.
 
-* Note-Taking Apps (Evernote, Notion, OneNote): Professionals use note-taking apps to jot down information after meeting new people at events or conferences. This can include details like names, company info, what was discussed, and any follow-up actions. However, these apps are not specifically designed for professional networking, so they require users to manually input data and remember to organize it.
+* <b>Note-Taking Apps (Evernote, Notion, OneNote)</b>: Professionals use note-taking apps to jot down information after meeting new people at events or conferences. This can include details like names, company info, what was discussed, and any follow-up actions. However, these apps are not specifically designed for professional networking, so they require users to manually input data and remember to organize it.
 
-* Digital Business Cards (e.g., HiHello, CamCard): Digital business card apps like HiHello and CamCard help people exchange contact information instantly at networking events, which eliminates the need for physical cards. However, these apps typically only store basic contact info (email, phone number, LinkedIn link) and don’t offer deeper context or information about where or how you met.
+* <b>Digital Business Cards (e.g., HiHello, CamCard)</b>: Digital business card apps like HiHello and CamCard help people exchange contact information instantly at networking events, which eliminates the need for physical cards. However, these apps typically only store basic contact info (email, phone number, LinkedIn link) and don’t offer deeper context or information about where or how you met.
 
-* Event-Specific Networking Apps (e.g., Bizzabo, Brella, Swapcard): Apps like Bizzabo, Brella, and Swapcard are designed to help attendees connect with one another at specific events like conferences or trade shows. They let attendees view attendee profiles, schedule meetings, and track who they’ve interacted with. However, these tools are event-specific, meaning they’re not useful for networking outside the context of the event. They don’t typically provide an ongoing, long-term solution for managing and following up with contacts after the event ends.
+* <b>Event-Specific Networking Apps (e.g., Bizzabo, Brella, Swapcard)</b>: Apps like Bizzabo, Brella, and Swapcard are designed to help attendees connect with one another at specific events like conferences or trade shows. They let attendees view attendee profiles, schedule meetings, and track who they’ve interacted with. However, these tools are event-specific, meaning they’re not useful for networking outside the context of the event. They don’t typically provide an ongoing, long-term solution for managing and following up with contacts after the event ends.
 
-* Calendar and Reminder Apps (Google Calendar, Microsoft Outlook): Users often rely on their calendars to schedule networking events and set reminders to follow up with people they meet. However, these apps are not specifically designed for networking, so they don't provide the ability to store detailed interaction history, make suggestions for follow-up messages, or track ongoing relationships.
+* <b>Calendar and Reminder Apps (Google Calendar, Microsoft Outlook)</b>: Users often rely on their calendars to schedule networking events and set reminders to follow up with people they meet. However, these apps are not specifically designed for networking, so they don't provide the ability to store detailed interaction history, make suggestions for follow-up messages, or track ongoing relationships.
 
 ### Unfair Advantage
 
@@ -169,3 +172,9 @@ A long-term, trusted relationship with users where they feel confident that our 
 ### Assistant
 
 ### Greasemonkey
+
+### Roadmap
+
+#### Features Implemented
+
+#### Features Planned

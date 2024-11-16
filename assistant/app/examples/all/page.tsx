@@ -3,7 +3,6 @@
 import React, { useState } from "react";
 import styles from "./page.module.css";
 import Chat from "../../components/chat";
-import WeatherWidget from "../../components/weather-widget";
 import {
   recordConnection,
   getSingleConnection,
@@ -52,10 +51,7 @@ const FunctionCalling = () => {
   return (
     <main className={styles.main}>
       <div className={styles.container}>
-        <div className={styles.column}>
-          <WeatherWidget {...weatherData} />
-          <FileViewer />
-        </div>
+        <div className={styles.column}>]</div>
         <div className={styles.chatContainer}>
           <div className={styles.chat}>
             <Chat functionCallHandler={functionCallHandler} />

@@ -38,7 +38,7 @@ An application that will accept text and transcribe voice input, input details i
 
 ### Unique Value Proposition
 
-WhoRU? stands out by going beyond basic contact management. While other tools simply store names and emails, WhoRU? is assisted by AI to capture the context—like interests, needs, and the specific value a person brings to your business. This makes follow-up more personalized and actionable, ensuring you never lose track of important details. Unlike traditional CRMs, WhoRU? is designed for simplicity, helping entrepreneurs and sales professionals build and nurture meaningful connections without the complexity of bulky systems.
+<b>WhoRU?</b> stands out by going beyond basic contact management. While other tools simply store names and emails, <b>WhoRU?</b> is assisted by AI to capture the context—like interests, needs, and the specific value a person brings to your business. This makes follow-up more personalized and actionable, ensuring you never lose track of important details. Unlike traditional CRMs, <b>WhoRU?</b> is designed for simplicity, helping entrepreneurs and sales professionals build and nurture meaningful connections without the complexity of bulky systems.
 
 ### Existing Alternatives
 
